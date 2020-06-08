@@ -13,6 +13,5 @@ const API_URL = environment.API_URL;
 export default {
     auth: {  
         login: API_URL + "auth/login",
-        register: API_URL + "auth/register"
     }
 }
