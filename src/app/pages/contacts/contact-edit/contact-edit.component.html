@@ -1,0 +1,9 @@
+
+<p *ngIf="backendError" class="alert alert-danger"  >
+    {{backendError}}
+  </p>
+  <app-contact-form
+    [title]="'Edit'"
+    (onFormSubmit)="editContact($event)"
+    [data]="data"
+  ></app-contact-form>

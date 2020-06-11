@@ -1,1 +1,61 @@
-<p>contacts-list works!</p>
+<div class="container-fluid grid-wrapper max-height">
+    <div class="contact-wrapper row">
+        <div class="col-md-12">
+            <a [routerLink]="'/contacts/add'" class="btn btn-primary custom-btn">Add Contact</a>
+        </div>
+        <div class="col-md-12">
+            <div class="searchbar">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Search Contacts</mat-label>
+                    <input matInput placeholder="Ex. name,phone,address,notes" [(ngModel)]="requestObject.search"
+                    (ngModelChange)="searchContacts($event)">
+                </mat-form-field>
+            </div>
+        </div>
+        <div *ngFor="let contact of contacts" class="col-md-4">
+            <div class="contact">
+                <div class="title">
+                    <h4>{{ contact.name }}</h4>
+                </div>
+                <div class="content">
+                    <span>Phone: </span><p>{{ contact.phone }}</p>
+                </div>
+                <div class="content">
+                    <span>Address: </span><p>{{ contact.address }}</p>
+                </div>
+                <div class="content">
+                    <span>notes: </span><p>{{ contact.notes }}</p>
+                </div>
+                <div class="contact-actions">
+                    <div *ngIf="!contact.isLocked">
+                        <a [routerLink]="'/contacts/edit/' + contact.id" class="btn btn-primary">Edit</a>
+                        <a (click)="deleteContact(contact.id)" class="btn btn-danger">Delete</a>
+                    </div>
+                    <div *ngIf="contact.isLocked">
+                        <button class="btn btn-secondary" disabled>Locked</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div *ngIf="totalItems > 0" class="row">
+        <div class="col-md-12 tp-pagination">
+            <pagination 
+            [boundaryLinks]="true"
+            [totalItems]="totalItems"
+            [maxSize]="5"
+            (pageChanged)="onPageChanged($event)"
+            [(ngModel)]="currentPage" 
+            [itemsPerPage]="requestObject.pageSize"
+            previousText="&lsaquo;"
+            nextText="&rsaquo;"
+            firstText="&laquo;"
+            lastText="&raquo;">
+            </pagination>
+        </div>
+    </div>
+    <div *ngIf="totalItems == 0" class="row center-content">
+        <h1>No Contacts Found</h1>
+    </div>
+</div>

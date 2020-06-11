@@ -7,10 +7,9 @@ import { HttpClientModule } from "@angular/common/http";
 
 // NgBootstrap
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { ContactsListComponent } from './contacts/contacts-list/contacts-list.component';
 
 @NgModule({
-	declarations: [ContactsListComponent],
+	declarations: [],
 	exports: [],
 	imports: [
 		CommonModule,

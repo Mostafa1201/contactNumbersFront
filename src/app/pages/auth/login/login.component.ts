@@ -26,9 +26,8 @@ export class LoginComponent implements OnInit {
 
     async ngOnInit() {
         this.loginForm = new FormGroup({
-            email: new FormControl('', Validators.compose([
-              Validators.required,
-              Validators.email
+            username: new FormControl('', Validators.compose([
+              Validators.required
             ])),
             password: new FormControl('', Validators.compose([
               Validators.required,
@@ -40,10 +39,10 @@ export class LoginComponent implements OnInit {
     }
 
     async login(){
-      const email = this.loginForm.value.email;
+      const username = this.loginForm.value.username;
 		  const password = this.loginForm.value.password;
       this.loginService.setParams({
-        email,
+        username,
         password
       });
   
@@ -55,7 +54,8 @@ export class LoginComponent implements OnInit {
           console.log("Something went wrong");
         }
       } catch (errors) {
-        console.log(errors);
+        console.log("errors: ",errors);
+        this.errorMessage = errors.faultyRequest.error;
       }
     }
 

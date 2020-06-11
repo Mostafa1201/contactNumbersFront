@@ -7,5 +7,14 @@ export const environment = {
   isMockEnabled: true, // You have to switch this, when your real back-end is done
   authTokenKey: "authce9d77b308c149d5992a80073637e4d5",
   BASE_URL: "http://localhost:3000/",
-  API_URL: "http://localhost:3000/"
+  API_URL: "http://localhost:3000/",
+  firebaseConfig: {
+    apiKey: "AIzaSyCR4WkX-aobMdxP9u9hvjCHvJv24ZRuWEM",
+    authDomain: "contact-numbers-77661.firebaseapp.com",
+    databaseURL: "https://contact-numbers-77661.firebaseio.com",
+    projectId: "contact-numbers-77661",
+    storageBucket: "contact-numbers-77661.appspot.com",
+    messagingSenderId: "314511128185",
+    appId: "1:314511128185:web:32b02112e660fdf5a846a8"
+  }
 };

@@ -10,7 +10,7 @@ const routes: Routes = [
 		component: BaseComponent,
 		children: [
 			{
-				path: "contacts",
+				path: "",
 				loadChildren: "./contacts/contacts.module#ContactsModule"
 			}
 		]
